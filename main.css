@@ -1,0 +1,89 @@
+main {
+    display: flex;
+    justify-content: center;
+}
+button {
+    border: none;
+    /* background: url("/image/back.png") no-repeat; */
+    background-image: url("./image/back.png");
+    background-size: contain;
+    background-color: transparent;
+    width: 44px;
+    height: 44px;
+    margin: 10px;
+    margin-left: 15%;
+    outline: none;
+    border-radius: 50%;
+}
+@media screen and (max-width: 600px) {
+    button {
+        margin-left: 10px;
+    }
+}
+button:hover {
+    cursor: pointer;
+}
+ul.content {
+    width: 70%;
+    column-count: 3;
+    column-gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+li.fatherBox {
+    width: 100%;
+    display: block;
+    break-inside: avoid;
+    list-style: none;
+    margin-bottom: 20px;
+    /* 不能用margin，因为所有子元素都是一列，试试就知道了 */
+    transition: all 0.3s;
+}
+li.fatherBox:hover {
+    cursor: pointer;
+}
+section.bgColor {
+    opacity: 0.95;
+    z-index: 0;
+}
+div.placeholder {
+    width: 100%;
+}
+nav.backNav {
+    display: none;
+}
+img.imgBox {
+    width: 100%;
+    display: block;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+div.contBox {
+    height: 60px;
+    background-color: white;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+span.articleTittle {
+    display: block;
+    line-height: 60px;
+    padding-left: 20px;
+
+    /* line-height: 60px;
+    align-items: center;
+    padding-left: 20px; */
+}
+
+@media screen and (max-width: 1000px) {
+    ul.content {
+        width: 80%;
+        column-count: 2;
+        column-width: 40%;
+        padding: 0;
+    }
+}
+@media screen and (max-width: 600px) {
+    ul.content {
+        width: 90%;
+        column-count: 1;
+        padding: 0;
+    }
+}

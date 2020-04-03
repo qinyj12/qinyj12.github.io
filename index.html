@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="animation.css">
+    <script src="jquery-3.4.1.min.js"></script>
+    <script src="findTarget.js"></script>
+    
+</head>
+<body onload="findTargetClass('fatherBox')">
+    <header>
+        <div class="headerBg"></div>
+        <div class="headerComp">
+            <div class="headline">
+                <nav class="headerTopnav">
+                    <a href="" class="brandLogo"></a>
+                    <i id="openIcon" class="openIcon">
+                        <img src="./image/openIcon.png" alt="menu">
+                    </i>
+                    <script>
+                        document.getElementById("openIcon").addEventListener("click",
+                        function() {
+                            document.getElementById("links").style.left = "0px";
+                            document.getElementById("openIcon").style.left = "-40px"
+                        })
+                    </script>
+                    <ul class="links" id="links">
+                        <div class="sidebarTop">
+                            <p>这是一个目录哦</p>
+                            <i id="closeIcon" class="closeIcon"></i>
+                            <script>
+                                document.getElementById("closeIcon").addEventListener("click",
+                                function() {
+                                    document.getElementById("links").style.left = "-300px"
+                                    document.getElementById("openIcon").style.left = "0"
+                                })
+                            </script>
+                        </div>
+                        <li>
+                            <i><img src="./image/home.png" alt="home"></i>
+                            <a href="">主页</a>
+                        </li>
+                        <li>
+                            <i><img src="./image/forum.png" alt="forum"></i>
+                            <a href="">论坛</a>
+                        </li>
+                        <li>
+                            <i><img src="./image/lab.png" alt="lab"></i>
+                            <a href="">实验室</a>
+                        </li>
+                        <li>
+                            <i><img src="./image/aboutMe.png" alt="aboutMe"></i>
+                            <a href="">关于我</a>
+                        </li>
+                        <li>
+                            <i><img src="./image/friends.png" alt="friends"></i>
+                            <a href="">友情链接</a>
+                        </li>
+                    </ul>
+                </nav>
+                <h1>汪喵工坊</h1>
+            </div>
+        </div>
+    </header>
+    <main>
+        <ul class="content">
+            <nav class="backNav">
+                <button></button>
+            </nav>
+            <li class="fatherBox" id="cont1">
+                <section class="bgColor"></section>
+                <div class="placeholder">
+                    <img src="./image/photo/kangaroo.jpg" alt="" class="imgBox">
+                    <div class="contBox">
+                        <span class="articleTittle">content1</span>
+                    </div>
+                </div>
+            </li>
+            <li class="fatherBox" id="cont2">
+                <section class="bgColor"></section>
+                <div class="placeholder">
+                    <img src="./image/photo/penguin.jpg" alt="" class="imgBox">
+                    <div class="contBox">
+                        <span class="articleTittle">content2</span>
+                    </div>
+                </div>
+            </li>
+            <li class="fatherBox dog" id="cont3">
+                <section class="bgColor"></section>
+                <div class="placeholder">
+                    <img src="./image/photo/dog2.jpg" alt="" class="imgBox">
+                    <div class="contBox">
+                        <span class="articleTittle">content3</span>
+                    </div>
+                </div>
+            </li>
+            <li class="fatherBox dog" id="cont4">
+                <section class="bgColor"></section>
+                <div class="placeholder dog">
+                    <img src="./image/photo/dog1.jpg" alt="" class="imgBox">
+                    <div class="contBox">
+                        <span class="articleTittle">content4</span>
+                    </div>
+                </div>
+            </li>
+            <li class="fatherBox" id="cont5">
+                <section class="bgColor"></section>
+                <div class="placeholder">
+                    <img src="./image/photo/Giraffe.jpg" alt="" class="imgBox">
+                    <div class="contBox">
+                        <span class="articleTittle">content5</span>
+                    </div>
+                </div>
+            </li>
+            <li class="fatherBox" id="cont6">
+                <section class="bgColor"></section>
+                <div class="placeholder">
+                    <img src="./image/photo/Sparrow.jpg" alt="" class="imgBox">
+                    <div class="contBox">
+                        <span class="articleTittle">content6</span>
+                    </div>
+                </div>
+            </li>
+            <li class="fatherBox" id="cont7">
+                <section class="bgColor"></section>
+                <div class="placeholder">
+                    <img src="./image/photo/Squirrel.jpg" alt="" class="imgBox">
+                    <div class="contBox">
+                        <span class="articleTittle">content7</span>
+                    </div>
+                </div>
+            </li>
+            <li class="fatherBox" id="cont8">
+                <section class="bgColor"></section>
+                <div class="placeholder">
+                    <img src="./image/photo/cat.jpg" alt="" class="imgBox">
+                    <div class="contBox">
+                        <span class="articleTittle">content8</span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </main>
+</body>
+</html>

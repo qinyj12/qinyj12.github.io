@@ -1,0 +1,293 @@
+/* 以下是bgcolor*/
+.bgcolorIniAni {
+    animation-name: bgColorForward;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    z-index: -1;
+}
+.bgcolorFinalAni {
+    animation-name: bgColorReverse;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+@keyframes bgColorForward {
+    0% {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+    100% {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: #5F9EA0;
+    }
+}
+@keyframes bgColorReverse {
+    0% {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: #5F9EA0;
+    }
+    100% {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+}
+
+/* 以下是imgbox */
+.imgIniAni {
+    animation-name: imgboxForward;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+.imgFinalAni {
+    animation-name: imgboxReverse;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+@keyframes imgboxForward {
+    0% {
+        width: calc(var(--fatherIniW)*1px);
+        position: absolute;
+        display: block;
+        top: calc(var(--fatherIniT)*1px);
+        left: calc(var(--fatherIniL)*1px);
+        z-index: 1;/* img要覆盖在contbox上面 */
+    }
+    100% {
+        width: calc(var(--fatherIniW)*1px);
+        position: absolute;
+        display: block;
+        top: 84px;
+        left: calc((var(--ulContentW)/0.7*0.15 + 20)*1px);
+        z-index: 1;
+        border-radius: 3%;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+}
+@keyframes imgboxReverse {
+    0%{
+        width: calc(var(--fatherIniW)*1px);
+        position: absolute;
+        display: block;
+        top: 84px;
+        left: calc((var(--ulContentW)/0.7*0.15 + 20)*1px);
+        z-index: 1;
+        border-radius: 3%;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+    100% {
+        width: calc(var(--fatherIniW)*1px);
+        position: absolute;
+        display: block;
+        top: calc(var(--fatherIniT)*1px);
+        left: calc(var(--fatherIniL)*1px);
+        z-index: 1;
+    }
+}
+@media screen and (max-width: 600px) {
+    @keyframes imgboxForward {
+        0% {
+            width: calc(var(--fatherIniW)*1px);
+            position: absolute;
+            display: block;
+            top: calc(var(--fatherIniT)*1px);
+            left: calc(var(--fatherIniL)*1px);
+            z-index: 1;/* img要覆盖在contbox上面 */
+        }
+        100% {
+            width: calc(var(--fatherIniW)*0.75px);/* 缩小成原来的0.75 */
+            position: absolute;
+            display: block;
+            top: 84px;
+            left: 20px;
+            z-index: 1;
+            border-radius: 3%;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+        }
+    }
+    @keyframes imgboxReverse {
+        0% {
+            width: calc(var(--fatherIniW)*0.75px);/* 缩小成原来的0.75 */
+            position: absolute;
+            display: block;
+            top: 84px;
+            left: 20px;
+            z-index: 1;
+            border-radius: 3%;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+        }
+        100% {
+            width: calc(var(--fatherIniW)*1px);
+            position: absolute;
+            display: block;
+            top: calc(var(--fatherIniT)*1px);
+            left: calc(var(--fatherIniL)*1px);
+            z-index: 1;/* img要覆盖在contbox上面 */
+        }
+    }
+}
+
+/* 以下是contbox */
+.contIniAni {
+    position: absolute;
+    box-sizing: border-box;/* 如果不用border-box，那padding-right会影响到元素的宽度 */    
+    animation-name: contboxForward;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    min-height: calc((var(--contboxMinH) - 54 - var(--fatherIniH)/2)*1px);
+    /* 这里刚好是到浏览器底部 */
+}
+.contFinalAni {
+    animation-name: contboxReverse;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+@keyframes contboxForward {
+    0% {
+        width: calc(var(--fatherIniW)*1px);
+        position: absolute;
+        display: block;
+        left: calc(var(--fatherIniL)*1px);
+        top: calc(var(--contboxIniT)*1px);
+    }
+    100% {
+        width: 70%;
+        height: fit-content;/* 高度自适应内部元素 */
+        position: absolute;
+        left: calc((var(--ulContentW)/0.7*0.15)*1px);
+        display: block;
+        top: calc((54 + var(--fatherIniH)/2)*1px);
+        /* 这里在imgbox的腰部 */
+
+        padding-top: calc((var(--fatherIniH)/2)*1px);
+        padding-left: 80px;
+        padding-right: 80px;
+        padding-bottom: 50px;
+        /* 读取外部html后，文字的位置 */
+    }
+}
+@keyframes contboxReverse {
+    0% {
+        width: 70%;
+        height: fit-content;
+        position: absolute;
+        display: block;
+        left: calc((var(--ulContentW)/0.7*0.15)*1px);
+        top: calc((54 + var(--fatherIniH)/2)*1px);
+        /* 这里在imgbox的腰部 */
+
+        /* padding-top: calc((var(--fatherIniH)/2)*1px);
+        padding-left: 80px;
+        padding-right: 80px;
+        padding-bottom: 50px; */
+        /* 要把padding删掉，不然动画就撕裂了 */
+    }
+    100% {
+        width: calc(var(--fatherIniW)*1px);
+        height: 60px;
+        position: absolute;
+        display: block;
+        left: calc(var(--fatherIniL)*1px);
+        top: calc((var(--fatherIniB) - 60)*1px);
+    }
+}
+@media screen and (max-width: 600px) {
+    @keyframes contboxForward {
+        0% {
+            width: calc(var(--fatherIniW)*1px);
+            position: absolute;
+            display: block;
+            left: calc(var(--fatherIniL)*1px);
+            top: calc(var(--contboxIniT)*1px);
+        }
+        100% {
+            width: 100%;
+            height: fit-content;
+            position: absolute;
+            display: block;
+            left: 0;
+            top: calc((54 + var(--fatherIniH)*0.75/2)*1px);
+            /* 这里在imgbox的腰部 */
+
+            padding-top: calc((var(--fatherIniH)/2)*1px);
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 20px;
+            /* 读取外部html后，文字的位置 */
+        }
+    }
+    @keyframes contboxReverse {
+        0% {
+            width: 100%;
+            height: fit-content;
+            position: absolute;
+            display: block;
+            left: 0;
+            top: calc((54 + var(--fatherIniH)*0.75/2)*1px);
+            /* 这里在imgbox的腰部 */
+
+            padding-top: calc((var(--fatherIniH)/2)*1px);
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 20px;
+            /* 读取外部html后，文字的位置 */
+        }
+        100% {
+            width: calc(var(--fatherIniW)*1px);
+            position: absolute;
+            display: block;
+            left: calc(var(--fatherIniL)*1px);
+            top: calc(var(--contboxIniT)*1px);            
+        }
+    }
+}
+
+
+/* 以下是placeholder */
+.placeholderIniAni {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    overflow: auto;/* 因为子元素contbox超过了placeholder的高度，所有要给placeholder设置overflow */
+}
+.placeholderFinalAni {
+    position: static;
+}
+
+/* 以下是fatherbox */
+.fatherboxInitial {
+    width: calc(var(--fatherIniW)*1px);
+    height: calc(var(--fatherIniH)*1px);
+}
+
+/* 以下是ul.content */
+.contentInitial {
+    height: calc(var(--contentIniH)*1px);
+}
+
+/* 以下是backNav */
+.backnavInitial {
+    display: block;
+    width: 100%;
+    height: 64px;
+    background-color: #ADD8E6;
+    box-shadow: 0 0 8px 0 rgba(0,0,0,0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}

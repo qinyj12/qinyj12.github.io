@@ -1,0 +1,205 @@
+* {
+    overflow-x: hidden;
+}
+html, body, p, h1, nav {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #f4f4f4;
+}
+/* 以下为header部分 */
+header {
+    width: 100vw;
+    height: 380px;
+    background-color: #ba68c8;
+    position: relative;/* 让absolute的子元素相对自己定位，因为必须要做两个子元素，而且一个覆盖另一个，这样opacity才不会继承 */
+    display: flex;
+    color: white;
+    margin-bottom: 20px;
+}
+.headerBg {
+    width: 100vw;/* 相对header定位，header是100vw */
+    height: 100%;
+    background: url('./image/icon-seamless.webp');
+    opacity: 0.1;
+}
+.headerComp {
+    position: absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    margin: auto;
+    /* left/right/top/bottom/margin共同实现居中 */
+    width: 70vw;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@media screen and (max-width: 850px) {/*  */
+    .headerComp {
+        width: 100vw;
+    }
+}
+.headerTopnav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 64px;
+    overflow-y: hidden;
+}
+.brandLogo {
+    display: inline-block;/* 是<a>标签，不用block没法加样式哦 */
+    width: 200px;
+    height: 100%;
+    background: url('./image/logo.png');
+    background-size: 100% 100%;
+}
+/* 以下是导航栏 */
+ul.links {
+    float: right;    
+    height: 64px;
+    /* 用于向右浮动 */
+    display: table;
+    word-spacing:-1em;
+    /* 用于清除inline-block产生的空隙 */
+    margin: 0;
+    /* 不margin:0你试试？ */
+    padding: 0;
+    /* 不padding:0你也试试？ */
+}
+i.openIcon {
+    display: none;
+}
+i.openIcon:hover {
+    cursor: pointer;
+}
+ul.links > div.sidebarTop {
+    display: none;
+    /* 大屏下不显示sidebar */
+}
+ul.links > div.sidebarTop {
+    position: relative;
+    color: rgba(0,0,0,0.87);
+    width: 100%;
+}
+ul.links > div.sidebarTop::after {
+    content: "";
+    width: 95%;
+    height: 1.5px;
+    background: #C7C1C0;
+    position: absolute;
+    bottom: -1.5px;
+    left: 50%;
+    transform: translateX(-50%);
+    /* 添加下划线 */
+}
+div.sidebarTop > P {
+    line-height: 50px;
+    padding: 10px 15px;
+}
+div.sidebarTop > i.closeIcon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    background: url("./image/closeIcon.png") no-repeat;
+    background-size: 100% 100%;
+}
+ul.links > li {
+    list-style: none;
+    display: inline-block;
+    line-height: 64px;
+    padding: 0 15px;
+    margin: 0;
+    cursor: pointer;
+}
+ul.links > li:hover {
+    background-color: rgba(0,0,0,0.1);
+}
+li.currentLi {
+    border-bottom: 2px solid black;
+}
+ul.links > li > i {
+    display: none;
+    /* 大屏时要把icon隐藏，这个icon只有在小屏sidebar时要用 */
+}
+li > a {
+    text-decoration: none;
+    color: white;
+}
+/* 屏幕尺寸小于700px时 */
+@media screen and (max-width: 850px) {
+    a.brandLogo {
+        position: absolute;
+        left: 50%;
+        margin-left: -100px;
+        /* logo要居中 */
+    }
+    i.openIcon {
+        position: absolute;
+        top: 10px;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0 4px 4px 0px;
+        width: 35px;
+        height: 35px;
+        background-color: #343a40;
+        padding-left: 5px;
+        transition: all 0.3s 0.5s;
+        /* openIcon出现，在屏幕最左边 */
+    }
+    i.openIcon > img {
+        width: 70%;
+        height: 70%;
+        /* openIcon内部加了个img，然后给img缩小一点 */
+    }
+    ul.links {
+        position: fixed;
+        left: -300px;
+        top: 0;
+        width: 300px;
+        height: 100%;
+        background-color: white;
+        display: block;
+        transition: all 0.3s;
+        /* 原来排在顶部的li们要跑到左边去啦 */
+    }
+    ul.links > div.sidebarTop {
+        display: block;
+        /* 原来sidebarTop是隐藏的，现在要显示出来 */
+    }
+    ul.links > li {
+        display: flex;
+        align-items: center;
+        /* li们恢复竖排，并且flex有助于内部元素的对齐 */
+    }
+    ul.links > li:hover {
+        background-color: rgba(242, 242, 242);
+        /* 鼠标悬停在li上时，改变背景色 */
+    }
+    ul.links > li > i {
+        display: flex;
+        /* 小屏时要把display:none给改成flex，这样才能显示，而且flex有助于内部元素对齐 */
+        justify-content: center;
+        align-items: center;
+        margin-right: 20px;
+        width: 30px;
+        height: 30px;
+    }
+    li > i > img {
+        width: 70%;
+        height: 70%;
+    }
+    li > a {
+        color: rgba(0,0,0,0.87);
+        /* li内部嵌套了a，要改变a的字体颜色 */
+    }
+}
